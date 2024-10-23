@@ -1,0 +1,34 @@
+@charset "UTF-8";
+.success-text{
+    @apply text-sm text-success-500;
+}
+.alert-success-container{
+    @apply p-4 rounded-theme
+    border border-success-200 bg-success-50;
+    div{
+        @apply text-sm text-success-600 font-medium;
+    }
+}
+.danger-text{
+    @apply text-sm text-danger-500;
+}
+.alert-danger-container{
+    @apply p-4 rounded-theme
+    border border-danger-200 bg-danger-50;
+    div,li{
+        @apply text-sm text-danger-500 font-medium;
+    }
+    ul{
+        @apply list-disc ltr:pl-6 rtl:pr-6;
+    }
+}
+.info-text{
+    @apply text-sm text-info-500;
+}
+.alert-info-container{
+    @apply p-4 rounded-theme
+    border border-info-200 bg-info-50;
+    div{
+        @apply text-sm text-info-500 font-medium;
+    }
+}

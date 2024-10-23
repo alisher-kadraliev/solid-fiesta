@@ -1,0 +1,148 @@
+@charset "UTF-8";
+.form-container {
+    @apply relative shadow-md rounded-theme py-6 px-1 sm:px-4 mb-10
+    bg-white;
+    .icon {
+        @apply text-neutral-700;
+    }
+    .form-page {
+        @apply space-y-4;
+        .form-header {
+            @apply relative mx-2;
+            .form-delete-record {
+                @apply absolute ltr:right-0 rtl:left-0 top-1/2 transform -translate-y-1/2;
+                .delete-link {
+                    @apply inline-block py-3 px-[13px] rounded-theme transition-colors
+                    text-neutral-500
+                    hover:bg-neutral-100
+                    active:bg-danger-100;
+                    &:hover {
+                        .icon {
+                            @apply text-danger-600;
+                        }
+                    }
+                }
+            }
+        }
+        .form-content {
+            @apply flex flex-wrap;
+            >div{
+                @apply px-2 pb-2 last:pb-0;
+            }
+            .form-image-preview {
+                @apply inline-block max-w-[120px] rounded-theme overflow-hidden;
+            }
+            .ak-image-preview {
+                @apply text-sm text-neutral-600;
+            }
+            .stored_image, .ak-image-preview img {
+                @apply max-w-[150px] max-h-[150px] mt-1 rounded-theme;
+            }
+            .separator {
+                label {
+                    @apply font-medium;
+                }
+            }
+            .form-switch {
+                .form-checkbox {
+                    @apply cursor-pointer h-6 w-11 rounded-full border-none transition-all
+                    text-red-500 bg-gray-200 bg-no-repeat;
+                    background-position: 0 center;
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/%3e%3c/svg%3e");
+                    &:checked {
+                        @apply bg-primary-500;
+                        background-position: 10px center;
+                    }
+                }
+            }
+            .cropper-content {
+                @apply hidden max-w-[500px];
+                .cropper-image {
+                    @apply block w-full;
+                }
+
+                .cropper-tools {
+                    @apply flex gap-1 py-2;
+                    > div {
+                        @apply cursor-pointer transition-colors select-none text-sm flex justify-center items-center p-3 rounded-theme
+                        bg-neutral-50
+                        hover:bg-neutral-100
+                        active:bg-neutral-200;
+                    }
+
+                    .icon {
+                        @apply w-auto text-neutral-600
+                        hover:text-neutral-800;
+                    }
+                }
+            }
+        }
+        .map-container {
+            @apply w-full flex flex-col gap-2
+            lg:gap-5 lg:flex-row;
+            .map-render {
+                @apply w-full lg:w-2/3 h-[300px] rounded-theme overflow-hidden
+                border border-neutral-200;
+            }
+
+            .map-input {
+                @apply w-full lg:w-1/3 space-y-1;
+                .text-muted {
+                    @apply text-xs;
+                }
+            }
+        }
+        .form-icon {
+            @apply select-none inline-block p-3 rounded-theme transition-colors
+            hover:bg-neutral-100
+            active:bg-primary-100;
+            &:hover {
+                .icon {
+                    @apply text-neutral-700;
+                }
+            }
+        }
+        .form-footer {
+            @apply mx-2;
+            .form-buttons-container {
+                @apply flex items-center justify-between;
+            }
+        }
+    }
+}
+.input-container {
+    @apply space-y-1;
+    /*.date-range-container {
+        @apply flex flex-col sm:flex-row gap-2;
+        >div{
+            @apply w-full sm:w-1/2;
+        }
+    }*/
+    .input-label {
+        @apply mb-0;
+        label {
+            @apply text-sm font-medium
+            text-neutral-900;
+        }
+    }
+    .input-data {
+        @apply space-y-1;
+    }
+    .error-message {
+        @apply text-sm text-red-500 hidden;
+    }
+}
+.validate-form {
+    &.validated {
+        :invalid ~ .error-message {
+            display: block;
+        }
+    }
+}
+.form-field-manager {
+    @apply mt-4;
+    .form-field-manager-content {
+        @apply flex flex-wrap gap-2;
+    }
+}
+

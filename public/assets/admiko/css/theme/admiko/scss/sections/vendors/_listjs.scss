@@ -1,0 +1,52 @@
+.pagination-content {
+    .pagination-info {
+        @apply hidden sm:block;
+        div {
+            @apply text-sm text-neutral-700 leading-5;
+        }
+    }
+    ul.listjs-pagination {
+        @apply shadow-sm rounded-theme;
+        .page-item {
+            @apply relative inline-flex items-center text-sm font-medium leading-5 ltr:-ml-px rtl:-mr-px cursor-pointer
+            text-neutral-500 bg-white border border-neutral-200;
+            &:not(.active):not(.disabled) {
+                @apply transition ease-in-out duration-150
+                hover:text-neutral-500 hover:bg-neutral-50 focus:z-10 active:bg-neutral-100 active:text-neutral-500;
+            }
+            .page-link {
+                @apply px-3 py-2;
+            }
+            &.active {
+                @apply text-neutral-200 cursor-default;
+            }
+            &.previous {
+                @apply ltr:rounded-l-md rtl:rounded-r-md;
+                a {
+                    @apply px-1.5 py-0;
+                }
+            }
+            &.next {
+                @apply ltr:-ml-px rtl:-mr-px ltr:rounded-r-md rtl:rounded-l-md ;
+                a {
+                    @apply px-1.5 py-0;
+                }
+            }
+            &.disabled {
+                @apply text-neutral-200 cursor-default;
+            }
+        }
+        > li{
+            @apply ltr:first:rounded-l-theme ltr:last:rounded-r-theme rtl:first:rounded-r-theme rtl:last:rounded-l-theme;
+            .page-item{
+                @apply disabled:text-neutral-200;
+                &.disabled{
+                    .page-link{
+                        @apply cursor-default;
+                    }
+                }
+            }
+        }
+    }
+}
+

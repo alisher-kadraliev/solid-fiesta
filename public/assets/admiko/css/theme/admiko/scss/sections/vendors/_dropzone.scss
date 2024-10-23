@@ -1,0 +1,18 @@
+@charset "utf-8";
+.dropzone-container {
+    @apply hidden;
+    .dropzone {
+        @apply select-none rounded-theme min-h-[150px] max-h-[345px] overflow-auto p-0
+        border-2 border-neutral-200 border-dashed;
+        .dz-message {
+            @apply m-0;
+            .dzone {
+                @apply flex items-center justify-center min-h-[146px] m-0 transition-colors
+                hover:bg-neutral-50;
+                .icon {
+                    @apply w-8 h-8 text-neutral-600 ltr:mr-4 rtl:ml-4;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,69 @@
+@charset "utf-8";
+.show-container {
+    @apply relative w-full shadow-md rounded-theme px-4 py-6
+    bg-white;
+    .show-header {
+        @apply flex justify-between mb-4;
+    }
+    .print-btn {
+        @apply w-10 h-10 flex justify-center items-center rounded-theme transition-colors cursor-pointer
+        text-neutral-500
+        hover:bg-neutral-100
+        active:bg-neutral-200;
+        &:hover {
+            .icon {
+                @apply text-neutral-600;
+            }
+        }
+    }
+    .show-svg-icon {
+        @apply flex justify-center items-center cursor-pointer select-none text-sm transition-colors p-3 rounded-theme w-10
+        text-neutral-600
+        hover:bg-neutral-100;
+    }
+}
+.show-content-print {
+    @apply bg-white;
+    &.show-content {
+        @apply flex flex-wrap;
+        >div{
+            @apply px-2 pb-2 last:pb-0;
+        }
+        .show-data-container {
+            @apply flex flex-col;
+            .show-label {
+                @apply text-sm font-medium text-neutral-900
+            }
+            .show-data {
+                @apply mt-1 text-sm;
+            }
+        }
+        .separator {
+            @apply my-1;
+            .input-label {
+                @apply empty:hidden
+            }
+            .text-muted {
+                &:empty {
+                    display: none
+                }
+            }
+        }
+    }
+    .checkbox-status{
+        @apply p-1 inline-block bg-danger-400 rounded-full;
+        &.bg-success{
+            @apply bg-success-400;
+        }
+    }
+    .show-color-data{
+        @apply p-2 inline-block rounded-theme ring-1 ring-neutral-200;
+    }
+    .small-badge {
+        @apply flex gap-1 flex-wrap;
+        div {
+            @apply text-xs font-medium rounded-theme px-2.5 py-0.5
+            border border-neutral-200;
+        }
+    }
+}

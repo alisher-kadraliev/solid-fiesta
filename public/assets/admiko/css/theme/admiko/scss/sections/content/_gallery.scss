@@ -1,0 +1,72 @@
+@charset "utf-8";
+.gallery-content {
+    .gallery{
+        @apply flex flex-wrap gap-2;
+        .item-container {
+            @apply w-[165px] rounded-theme border border-neutral-200 overflow-hidden cursor-pointer;
+            &:has(.multi-delete-checkbox input:checked) {
+                @apply border-danger-500;
+            }
+            .item-layout{
+                @apply relative min-h-[140px];
+                .main-image {
+                    @apply min-h-[140px] w-full overflow-hidden transition-transform;
+                    > div {
+                        @apply bg-cover bg-center min-h-[140px] h-full w-full transition-all;
+                    }
+                }
+                .item-content{
+                    @apply ltr:pl-2 ltr:pr-1 rtl:pr-2 rtl:pl-1 py-2 empty:hidden;
+                    &:has(>div:empty) {
+                        @apply hidden;
+                    }
+                    .item-data {
+                        @apply relative text-neutral-800 text-sm space-y-0.5;
+                        /*&:has(>div:empty) {
+                            @apply hidden;
+                        }*/
+                        .item-image {
+                            @apply block w-16 h-16;
+                            > div {
+                                @apply bg-cover bg-center w-16 h-16 rounded-theme;
+                            }
+                        }
+                        > div {
+                            @apply empty:hidden;
+                        }
+                    }
+                    .sub-page-container{
+                        @apply flex flex-wrap gap-0.5
+                    }
+                }
+                .sub-page {
+                    @apply p-1 flex items-center flex-wrap gap-2;
+                }
+                .manage-links {
+                    @apply absolute top-0 ltr:left-0 rtl:right-0 w-full flex justify-between items-center p-0.5 opacity-5 transition-opacity
+                    bg-white
+                    empty:hidden;
+                    &:has(.multi-delete-checkbox input:checked) {
+                        @apply opacity-90;
+                    }
+                    a, > div {
+                        @apply block;
+                    }
+                    .drag-me-col {
+                        @apply min-w-[40px] max-w-[40px];
+                    }
+                }
+            }
+            &:hover {
+                .main-image >div{
+                    @apply scale-105;
+                }
+                .manage-links {
+                    @apply opacity-60
+                    hover:opacity-95;
+                }
+            }
+
+        }
+    }
+}

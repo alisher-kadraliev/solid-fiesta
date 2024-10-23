@@ -1,0 +1,26 @@
+@charset "UTF-8";
+.modal-delete {
+    @apply fixed top-0 ltr:left-0 rtl:right-0 ltr:right-0 rtl:left-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-full max-h-full hidden
+    bg-gray-700/80;
+    .modal-center {
+        @apply flex justify-center items-center h-full w-full;
+        .modal-container {
+            @apply relative w-full max-w-md max-h-full;
+            .modal-content {
+                @apply relative bg-white rounded-theme shadow;
+                .modal-dialog {
+                    @apply p-6 text-center;
+                    .info-icon{
+                        @apply mx-auto mb-4 text-gray-400 w-14 h-14;
+                    }
+                    p {
+                        @apply mb-5 text-lg font-normal text-neutral-600;
+                    }
+                    .modal-action {
+                        @apply flex justify-center items-center gap-4;
+                    }
+                }
+            }
+        }
+    }
+}

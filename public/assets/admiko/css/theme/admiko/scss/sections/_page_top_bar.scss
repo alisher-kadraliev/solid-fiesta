@@ -1,0 +1,66 @@
+@charset "UTF-8";
+.page-top-bar {
+    @apply relative flex justify-between flex-nowrap items-center mb-2.5
+    bg-white shadow-sm ps-1 pe-2 sm:px-7 h-14;
+    .icon-container {
+        @apply flex items-center justify-center w-10 h-10 rounded-theme cursor-pointer transition-colors
+        text-neutral-600;
+        .icon {
+            @apply h-5 w-5 transition-all;
+        }
+        &.import-page {
+            @apply flex items-center justify-center rounded-theme;
+            .icon {
+                @apply h-5 w-6;
+            }
+        }
+        &:hover{
+            @apply text-neutral-700 bg-neutral-100;
+            .icon{
+                @apply h-6 w-8;
+            }
+        }
+        &:active{
+            @apply bg-neutral-200;
+        }
+    }
+    .right-side {
+        @apply flex items-center gap-2;
+        .sidebar-user {
+            @apply flex items-center relative py-2;
+            .sidebar-user-image {
+                @apply order-2;
+                img{
+                    @apply w-10 h-10 ring-2 ring-white ring-offset-1 rounded-theme transition-all;
+                }
+            }
+            .sidebar-user-info {
+                @apply order-1 ltr:pr-2 rtl:pl-2 ltr:text-right rtl:text-left;
+                .sidebar-user-name {
+                    @apply text-sm font-medium text-black;
+                }
+                .sidebar-user-email {
+                    @apply text-xs text-neutral-500;
+                }
+            }
+            .sidebar-user-links{
+                @apply hidden absolute top-full ltr:right-0 rtl:left-0 bg-white rounded-theme rounded-t-none p-3 flex-col gap-1 z-50 shadow-sm space-y-2;
+                .link {
+                    @apply overflow-hidden mx-2 rounded-md flex flex-nowrap items-center
+                    text-neutral-700
+                    hover:text-primary-700;
+                    .icon {
+                        @apply grow-0 ltr:mr-1.5 rtl:ml-1.5 transition-transform;
+                    }
+                }
+                .title {
+                    @apply whitespace-nowrap;
+                }
+            }
+            &:hover .sidebar-user-links{
+                @apply flex;
+            }
+
+        }
+    }
+}

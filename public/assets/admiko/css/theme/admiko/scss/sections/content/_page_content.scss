@@ -1,0 +1,254 @@
+@charset "UTF-8";
+.page-content {
+    @apply pb-10;
+    .container-layout {
+        @apply flex flex-wrap gap-x-4;
+    }
+    .content-layout {
+        @apply relative mb-10;
+        .content-element {
+            @apply shadow-md space-y-4 pt-4 pb-6 px-2 sm:px-6 rounded-theme bg-white;
+            .content-header {
+                @apply flex flex-col justify-between space-y-2;
+                .header {
+                    @apply mt-1;
+                    &:has(h3:empty + p:empty) {
+                        @apply hidden;
+                    }
+                    .title {
+                        @apply empty:hidden;
+                    }
+                    .info {
+                        @apply text-sm text-neutral-500 empty:hidden;
+                    }
+                }
+                .action {
+                    @apply flex justify-between items-start;
+                    .left {
+                        @apply empty:hidden;
+                        .search-container {
+                            @apply relative w-44;
+                            .search-input{
+                                @apply bg-neutral-50;
+                            }
+                            .search-button{
+                                @apply absolute top-0 ltr:right-0 rtl:left-0 px-2.5 h-full text-neutral-400
+                                hover:text-neutral-500
+                                active:text-neutral-900;
+                            }
+                            .reset-search {
+                                @apply cursor-pointer absolute top-1/2 ltr:left-full rtl:right-full px-1.5 py-2 transform -translate-y-1/2
+                                text-neutral-400
+                                hover:text-neutral-500;
+                                .icon{
+                                    @apply w-[10px];
+                                }
+                            }
+                        }
+                    }
+                    .right {
+                        @apply flex gap-2 flex-wrap empty:hidden;
+                    }
+                }
+            }
+            .content {
+                @apply relative overflow-hidden overflow-x-auto;
+                .icon {
+                    @apply text-neutral-500;
+                }
+                .ajax-spinner {
+                    @apply hidden bg-white/70 absolute w-full h-full z-30;
+                    .ajax-spinner-action {
+                        @apply w-full h-full flex justify-center items-center;
+                        .loading-indicator {
+                            svg {
+                                @apply h-7 w-7 text-primary-300;
+                            }
+                        }
+                    }
+                }
+                .drag-me-col {
+                    @apply select-none p-0 cursor-move min-w-[44px] max-w-[44px];
+                    .drag-me-icon {
+                        @apply rounded-theme inline-block p-3 transition-colors
+                        hover:bg-neutral-100
+                        active:bg-primary-100;
+                    }
+                }
+                .edit-link, .show-link {
+                    @apply select-none inline-block p-3 rounded-theme transition-colors
+                    hover:bg-neutral-100
+                    active:bg-primary-100;
+                    &:hover {
+                        .icon {
+                            @apply text-neutral-700;
+                        }
+                    }
+                }
+                .delete-link {
+                    @apply select-none inline-block py-3 px-[13px] rounded-theme transition-colors
+                    hover:bg-neutral-100
+                    active:bg-danger-100;
+                    &:hover {
+                        .icon {
+                            @apply text-danger-600;
+                        }
+                    }
+                }
+                .multi-delete-checkbox {
+                    @apply m-0 p-3 rounded-theme cursor-pointer inline-block transition-colors
+                    hover:bg-neutral-100
+                    active:bg-danger-100;
+                    &:has(input:checked) {
+                        @apply bg-danger-200;
+                    }
+                    input {
+                        @apply text-danger-500;
+                    }
+                }
+                .small-badge {
+                    @apply flex gap-1 flex-wrap;
+                    div {
+                        @apply text-xs font-medium rounded-theme px-2.5 py-0.5 border border-neutral-200;
+                    }
+                }
+
+                .sub-page-icon {
+                    @apply select-none p-3 rounded-theme transition-colors
+                    hover:bg-neutral-100
+                    active:bg-primary-100;
+                    &:hover {
+                        .icon {
+                            @apply text-neutral-700;
+                        }
+                    }
+                }
+                .sub-page-icon-title {
+                    @apply select-none inline-flex justify-center items-center text-sm leading-none gap-1.5 p-3 rounded-theme transition-colors
+                    text-neutral-800
+                    hover:bg-neutral-100
+                    active:bg-primary-100;
+                    &:hover {
+                        .icon {
+                            @apply text-neutral-700;
+                        }
+                    }
+                }
+                .sub-page-title {
+                    @apply select-none py-2.5 px-3 rounded-theme transition-colors text-sm
+                    text-neutral-800
+                    hover:bg-neutral-100
+                    active:bg-primary-100;
+                    &:hover {
+                        @apply text-neutral-700;
+                    }
+                }
+
+                .parent-child-icon {
+                    @apply select-none inline-block p-3 rounded-theme transition-colors
+                    hover:bg-neutral-100
+                    active:bg-primary-100;
+                    &:hover {
+                        .icon {
+                            @apply text-neutral-700;
+                        }
+                    }
+                }
+                .parent-child-icon-title {
+                    @apply select-none inline-flex justify-center items-center text-sm leading-none gap-1.5 p-3 rounded-theme transition-colors
+                    text-neutral-800
+                    hover:bg-neutral-100
+                    active:bg-primary-100;
+                    &:hover {
+                        .icon {
+                            @apply text-neutral-700;
+                        }
+                    }
+                }
+                .parent-child-title {
+                    @apply select-none py-2.5 inline-block px-3 rounded-theme transition-colors text-sm
+                    text-neutral-800
+                    hover:bg-neutral-100
+                    active:bg-primary-100;
+                    &:hover {
+                        @apply text-neutral-700;
+                    }
+                }
+            }
+            .delete-select-all {
+                @apply cursor-pointer inline-block p-3 rounded-theme transition-colors
+                text-neutral-500 bg-neutral-50
+                hover:bg-neutral-100
+                active:bg-neutral-200;
+            }
+            .content-footer {
+                @apply flex justify-between flex-wrap gap-2;
+                .left{
+                    @apply flex gap-2;
+                    .change-length {
+                        .form-select {
+                            @apply text-sm ltr:pr-7 rtl:pl-7;
+                        }
+                    }
+                }
+                .right{
+                    @apply flex gap-2;
+                }
+                .content-pagination {
+                    @apply flex gap-2;
+                    .pagination-container{
+                        @apply flex items-center justify-between ;
+                        .pagination-content{
+                            @apply flex-1 flex items-center justify-between gap-2;
+                            .pagination-info{
+                                @apply hidden text-sm text-neutral-700 leading-5
+                                sm:block;
+                            }
+                            div.pagination{
+                                @apply shadow-sm rounded-theme;
+                                >span{
+                                    @apply relative z-0 inline-flex rounded-theme;
+                                    .page-item{
+                                        @apply relative inline-flex items-center text-sm font-medium cursor-pointer
+                                        text-neutral-500 bg-white border border-neutral-200 leading-5;
+                                        svg {
+                                            @apply w-5 h-5;
+                                        }
+                                    }
+                                    span.page-item{
+                                        @apply cursor-default;
+                                    }
+                                    .page-item-separator {
+                                        @apply px-2.5 py-2 ltr:-ml-px rtl:-mr-px;
+                                    }
+                                    .prev-link{
+                                        @apply px-1 py-2 rounded-l-theme;
+                                    }
+                                    .active{
+                                        @apply transition ease-in-out duration-150
+                                        hover:text-neutral-500 hover:bg-neutral-50
+                                        focus:z-10
+                                        active:bg-neutral-100 active:text-neutral-500;
+                                    }
+                                    .page-link{
+                                        @apply px-3 py-2 ltr:-ml-px rtl:-mr-px;
+                                    }
+                                    .next-link{
+                                        @apply px-1 py-2 ltr:-ml-px rtl:-mr-px ltr:rounded-r-theme rtl:rounded-l-theme;
+                                    }
+                                    .disabled{
+                                        @apply text-neutral-200;
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+

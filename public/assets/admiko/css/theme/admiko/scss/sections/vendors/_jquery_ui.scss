@@ -1,0 +1,13 @@
+@charset "utf-8";
+.highlight {
+    @apply outline-2 outline-dashed -outline-offset-2 rounded-theme
+    outline-primary-400 bg-neutral-50 border border-transparent;
+}
+.ui-sortable-helper {
+    @apply outline-1 outline-dashed -outline-offset-1 rounded-theme
+    outline-primary-400 bg-white;
+    border: hidden !important;
+    td {
+        border: hidden !important;
+    }
+}

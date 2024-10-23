@@ -1,0 +1,27 @@
+@charset "UTF-8";
+.public-container {
+    @apply flex min-h-screen flex-col justify-center justify-items-center py-12
+    xs:px-6 lg:px-8;
+    .public-content{
+        @apply mt-8 bg-white py-8 px-4 shadow
+        xs:mx-auto xs:w-full xs:max-w-md xs:rounded-theme xs:px-10;
+    }
+}
+.auth-container{
+    @apply space-y-4;
+    form{
+        @apply space-y-4;
+    }
+    .auth-remember{
+        @apply flex justify-between flex-col items-start xs:flex-row xs:items-center;
+    }
+    .auth-submit{
+        @apply flex justify-between flex-col xs:flex-row;
+        button{
+            @apply w-full;
+        }
+    }
+    a{
+        @apply text-primary-500 hover:underline;
+    }
+}
