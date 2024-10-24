@@ -1,6 +1,6 @@
 @extends("admin.admin_layout.default")
 @section('breadcrumbs')
-	<li class="breadcrumb-item"><a href="{{ route("admin.markalar.index") }}">Markalar</a></li>
+	<li class="breadcrumb-item"><a href="{{ route("admin.products.index") }}">Kategori Ürünler</a></li>
     @if(isset($data->id))
         <li class="breadcrumb-item active">{{trans('admin/form.breadcrumbs_edit')}}</li>
     @else
@@ -8,13 +8,13 @@
     @endIf
 @endsection
 @section('page-title')
-Markalar
+Kategori Ürünler
 @endsection
 @section('page-info')@endsection
-@section('page-back-button'){{ route("admin.markalar.index") }}@endsection
+@section('page-back-button'){{ route("admin.products.index") }}@endsection
 @section('page-content')
-<div class="form-container content-width-medium markalar-form-content js-ak-delete-container" data-delete-modal-action="{{route("admin.markalar.delete")}}">
-    <form method="POST" action="@isset($data->id){{route("admin.markalar.update", $data->id)}}@else{{route("admin.markalar.store")}}@endisset" enctype="multipart/form-data" class="form-page validate-form" novalidate>
+<div class="form-container content-width-medium products-form-content js-ak-delete-container" data-delete-modal-action="{{route("admin.products.delete")}}">
+    <form method="POST" action="@isset($data->id){{route("admin.products.update", $data->id)}}@else{{route("admin.products.store")}}@endisset" enctype="multipart/form-data" class="form-page validate-form" novalidate>
         <div hidden>
             @isset($data->id) @method('PUT') @endisset
             @csrf
@@ -22,7 +22,7 @@ Markalar
         <div class="form-header">
             <h3>{{ isset($data->id) ? trans('admin/form.update') : trans('admin/form.add_new') }}</h3>
             <div class="form-delete-record">
-                @can('markalar_delete')
+                @can('products_delete')
                     @if(isset($data->id))
                     <a href="#" data-id="{{$data->id}}" class="delete-link js-ak-delete-link" draggable="false">
                         @includeIf("admin/admin_layout/partials/misc/icons/delete_icon")
@@ -34,10 +34,24 @@ Markalar
         @includeIf("admin.admin_layout.partials.form.errors")
         <div class="form-content">
             
+                <div class="row-100 el-box-text">
+                    <div class="input-container">
+                        <div class="input-label">
+                            <label for="product_categy_title">Ürün Kategori ismi</label>
+                        </div>
+                        <div class="input-data">
+                            <input type="text" class="form-input" id="product_categy_title" autocomplete="off"
+                                   name="product_categy_title"  placeholder="&Uuml;r&uuml;n Kategori ismi"
+                                   value="{{{ old('product_categy_title', $data->product_categy_title??'') }}}">
+                            <div class="error-message @if ($errors->has('product_categy_title')) show @endif">{{trans('admin/form.required_text')}}</div>
+                            <div class="text-muted" id="product_categy_title_help"></div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row-100 el-box-image">
                     <div class="input-container">
                         <div class="input-label">
-                            <label for="image">image</label>
+                            <label for="image">Foto</label>
                         </div>
                         <div class="input-data">
                             @if ($data->image)
@@ -67,7 +81,7 @@ Markalar
                     </div>
                 </div>
         </div>
-        @includeIf("admin.admin_layout.partials.form.footer",["cancel_route"=>route("admin.markalar.index")])
+        @includeIf("admin.admin_layout.partials.form.footer",["cancel_route"=>route("admin.products.index")])
     </form>
 </div>
 @isset($data->id)

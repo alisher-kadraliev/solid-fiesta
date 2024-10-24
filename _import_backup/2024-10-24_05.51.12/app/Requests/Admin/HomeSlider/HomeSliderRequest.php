@@ -8,15 +8,25 @@
 * Any custom code should be added elsewhere to avoid losing changes during updates.
 * However, in case your code is overwritten, you can always restore it from a backup folder.
 */
-namespace App\Requests\Admin\Markalar;
+namespace App\Requests\Admin\HomeSlider;
 use Illuminate\Foundation\Http\FormRequest;
 
-class MarkalarRequest extends FormRequest
+class HomeSliderRequest extends FormRequest
 {
     public function rules()
     {
         return [
-            "image"=>[
+            "title"=>[
+				"string",
+				"nullable",
+				"max:255"
+			],
+			"alt_title"=>[
+				"string",
+				"nullable",
+				"max:255"
+			],
+			"foto"=>[
 				"image",
 				"file_extension:jpg,jpeg,png,webp",
 				"mimes:jpg,jpeg,png,webp",
@@ -27,13 +37,15 @@ class MarkalarRequest extends FormRequest
     public function attributes()
     {
         return [
-            "image"=>"image"
+            "title"=>"Başlık",
+			"alt_title"=>"Alt Başlık",
+			"foto"=>"Foto"
         ];
     }
     public function messages()
     {
         return [
-            "image.file_extension"=>trans("admin/form.required_type")
+            "foto.file_extension"=>trans("admin/form.required_type")
         ];
     }
 

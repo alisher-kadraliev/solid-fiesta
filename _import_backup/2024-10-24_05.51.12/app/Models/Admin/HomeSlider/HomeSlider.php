@@ -8,14 +8,14 @@
 * Any custom code should be added elsewhere to avoid losing changes during updates.
 * However, in case your code is overwritten, you can always restore it from a backup folder.
 */
-namespace App\Models\Admin\Markalar;
+namespace App\Models\Admin\HomeSlider;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\Admin\AdminService\Traits\AdminFileUploadTrait;
 
-class Markalar extends Model
+class HomeSlider extends Model
 {
     use AdminFileUploadTrait;
-    public $table = 'markalar';
+    public $table = 'anasayfa_slider';
     
     protected $dates = [
         'created_at',
@@ -24,14 +24,16 @@ class Markalar extends Model
     ];
 
     protected $fillable = [
-		"image",
-		"ak_image_delete",
+		"title",
+		"alt_title",
+		"foto",
+		"ak_foto_delete",
     ];
     
 	public function fileInfo($key=false)
     {
         $file_info = [
-			"image"=>[
+			"foto"=>[
 				"disk"=>config("admin.settings.upload_disk"),
 				"quality"=>config("admin.images.image_quality"),
 				"webp"=>["action"=>"none","quality"=>config("admin.images.webp_quality")],
@@ -40,32 +42,32 @@ class Markalar extends Model
 		];
         return ($key)?$file_info[$key]:$file_info;
     }
-    public function setImageAttribute()
+    public function setFotoAttribute()
     {
-        if (request()->hasFile('image')) {
-            $this->attributes['image'] = $this->akImageUpload(request()->file("image"), $this->fileInfo("image"), $this->getOriginal('image'));
+        if (request()->hasFile('foto')) {
+            $this->attributes['foto'] = $this->akImageUpload(request()->file("foto"), $this->fileInfo("foto"), $this->getOriginal('foto'));
         }
     }
-    public function getImageAttribute($value)
+    public function getFotoAttribute($value)
     {
-        if ($value && $this->akFileExists($this->fileInfo("image")['disk'],$this->fileInfo("image")['original']["folder"],$value)) {
-            return $this->akGetURLPath($this->fileInfo("image")['disk'],$this->fileInfo("image")['original']["folder"],$value);
+        if ($value && $this->akFileExists($this->fileInfo("foto")['disk'],$this->fileInfo("foto")['original']["folder"],$value)) {
+            return $this->akGetURLPath($this->fileInfo("foto")['disk'],$this->fileInfo("foto")['original']["folder"],$value);
         }
         return false;
     }
-    public function setAkImageDeleteAttribute($delete)
+    public function setAkFotoDeleteAttribute($delete)
     {
-        if (!request()->hasFile('image') && $delete == 1) {
-            $this->attributes['image'] = $this->akImageUpload('', $this->fileInfo("image"), $this->getOriginal('image'), 1);
+        if (!request()->hasFile('foto') && $delete == 1) {
+            $this->attributes['foto'] = $this->akImageUpload('', $this->fileInfo("foto"), $this->getOriginal('foto'), 1);
         }
     }
 	public function scopeStartSorting($query, $request)
     {
-        if ($request->has('markalar_sort_by') && $request->markalar_sort_by) {
-            if($request->markalar_direction == "desc"){
-                $query->orderByDesc($request->markalar_sort_by);
+        if ($request->has('home_slider_sort_by') && $request->home_slider_sort_by) {
+            if($request->home_slider_direction == "desc"){
+                $query->orderByDesc($request->home_slider_sort_by);
             } else {
-                $query->orderBy($request->markalar_sort_by);
+                $query->orderBy($request->home_slider_sort_by);
             }
         } else {
             $query->orderByDesc("id");

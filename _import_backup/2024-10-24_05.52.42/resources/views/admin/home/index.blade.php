@@ -1,15 +1,15 @@
 @extends("admin.admin_layout.default")
 @section('breadcrumbs')
-<li class="breadcrumb-item active">İletişim Biliglerie</li>
+<li class="breadcrumb-item active">Home</li>
 @endsection
 @section('page-title')
-İletişim Biligleri
+Home
 @endsection
 @section('page-info')@endsection
 @section('page-back-button')@endsection
 @section('page-content')
-<div class="page-content-width-full">
-
-
+<div class="page-content-width-medium">
+    
+	
 </div>
 @endsection

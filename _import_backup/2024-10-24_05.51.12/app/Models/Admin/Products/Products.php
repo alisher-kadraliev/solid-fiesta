@@ -8,14 +8,14 @@
 * Any custom code should be added elsewhere to avoid losing changes during updates.
 * However, in case your code is overwritten, you can always restore it from a backup folder.
 */
-namespace App\Models\Admin\Markalar;
+namespace App\Models\Admin\Products;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\Admin\AdminService\Traits\AdminFileUploadTrait;
 
-class Markalar extends Model
+class Products extends Model
 {
     use AdminFileUploadTrait;
-    public $table = 'markalar';
+    public $table = 'rnler';
     
     protected $dates = [
         'created_at',
@@ -24,6 +24,7 @@ class Markalar extends Model
     ];
 
     protected $fillable = [
+		"product_categy_title",
 		"image",
 		"ak_image_delete",
     ];
@@ -61,11 +62,11 @@ class Markalar extends Model
     }
 	public function scopeStartSorting($query, $request)
     {
-        if ($request->has('markalar_sort_by') && $request->markalar_sort_by) {
-            if($request->markalar_direction == "desc"){
-                $query->orderByDesc($request->markalar_sort_by);
+        if ($request->has('products_sort_by') && $request->products_sort_by) {
+            if($request->products_direction == "desc"){
+                $query->orderByDesc($request->products_sort_by);
             } else {
-                $query->orderBy($request->markalar_sort_by);
+                $query->orderBy($request->products_sort_by);
             }
         } else {
             $query->orderByDesc("id");

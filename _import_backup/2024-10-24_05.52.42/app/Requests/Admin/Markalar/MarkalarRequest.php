@@ -16,26 +16,14 @@ class MarkalarRequest extends FormRequest
     public function rules()
     {
         return [
-            "image"=>[
-				"image",
-				"file_extension:jpg,jpeg,png,webp",
-				"mimes:jpg,jpeg,png,webp",
-				"nullable"
-			]
+            
         ];
     }
     public function attributes()
     {
         return [
-            "image"=>"image"
+            
         ];
     }
-    public function messages()
-    {
-        return [
-            "image.file_extension"=>trans("admin/form.required_type")
-        ];
-    }
-
-
+    
 }

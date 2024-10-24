@@ -8,15 +8,20 @@
 * Any custom code should be added elsewhere to avoid losing changes during updates.
 * However, in case your code is overwritten, you can always restore it from a backup folder.
 */
-namespace App\Requests\Admin\Markalar;
+namespace App\Requests\Admin\Products;
 use Illuminate\Foundation\Http\FormRequest;
 
-class MarkalarRequest extends FormRequest
+class ProductsRequest extends FormRequest
 {
     public function rules()
     {
         return [
-            "image"=>[
+            "product_categy_title"=>[
+				"string",
+				"nullable",
+				"max:255"
+			],
+			"image"=>[
 				"image",
 				"file_extension:jpg,jpeg,png,webp",
 				"mimes:jpg,jpeg,png,webp",
@@ -27,7 +32,8 @@ class MarkalarRequest extends FormRequest
     public function attributes()
     {
         return [
-            "image"=>"image"
+            "product_categy_title"=>"Ürün Kategori ismi",
+			"image"=>"Foto"
         ];
     }
     public function messages()

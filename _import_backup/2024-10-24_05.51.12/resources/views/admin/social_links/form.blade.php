@@ -24,7 +24,7 @@
         </div>
         @includeIf("admin.admin_layout.partials.form.errors")
         <div class="form-content">
-
+            
                 <div class="row-100 el-box-text">
                     <div class="input-container">
                         <div class="input-label">
@@ -45,7 +45,7 @@
                             <label for="email">Email</label>
                         </div>
                         <div class="input-data">
-                            <input type="email" autocomplete="off" class="form-input" id="email" name="email"
+                            <input type="email" autocomplete="off" class="form-input" id="email" name="email" 
                                    placeholder="email"  value="{{{ old('email', $data->email??'') }}}">
                             <div class="error-message @if ($errors->has('email')) show @endif">{{trans('admin/form.required_text')}}</div>
                             <div class="text-muted" id="email_help"></div>
