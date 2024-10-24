@@ -26,7 +26,7 @@
 <body>
 
 <header class="bg-white flex flex-col">
-    <div class="container">
+    <div class="container mt-1">
         <div class="flex gap-4 justify-between items-center max-lg:mt-6">
             <div class="flex gap-5 items-center max-lg:hidden">
                 <a href="" target="_blank"
